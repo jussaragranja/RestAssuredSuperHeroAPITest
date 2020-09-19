@@ -1,0 +1,188 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "response": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "powerstats": {
+      "type": "object",
+      "properties": {
+        "intelligence": {
+          "type": "string"
+        },
+        "strength": {
+          "type": "string"
+        },
+        "speed": {
+          "type": "string"
+        },
+        "durability": {
+          "type": "string"
+        },
+        "power": {
+          "type": "string"
+        },
+        "combat": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "intelligence",
+        "strength",
+        "speed",
+        "durability",
+        "power",
+        "combat"
+      ]
+    },
+    "biography": {
+      "type": "object",
+      "properties": {
+        "full-name": {
+          "type": "string"
+        },
+        "alter-egos": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "place-of-birth": {
+          "type": "string"
+        },
+        "first-appearance": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "alignment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "full-name",
+        "alter-egos",
+        "aliases",
+        "place-of-birth",
+        "first-appearance",
+        "publisher",
+        "alignment"
+      ]
+    },
+    "appearance": {
+      "type": "object",
+      "properties": {
+        "gender": {
+          "type": "string"
+        },
+        "race": {
+          "type": "string"
+        },
+        "height": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "weight": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "eye-color": {
+          "type": "string"
+        },
+        "hair-color": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "gender",
+        "race",
+        "height",
+        "weight",
+        "eye-color",
+        "hair-color"
+      ]
+    },
+    "work": {
+      "type": "object",
+      "properties": {
+        "occupation": {
+          "type": "string"
+        },
+        "base": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "occupation",
+        "base"
+      ]
+    },
+    "connections": {
+      "type": "object",
+      "properties": {
+        "group-affiliation": {
+          "type": "string"
+        },
+        "relatives": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "group-affiliation",
+        "relatives"
+      ]
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  },
+  "required": [
+    "response",
+    "id",
+    "name",
+    "powerstats",
+    "biography",
+    "appearance",
+    "work",
+    "connections",
+    "image"
+  ]
+}
