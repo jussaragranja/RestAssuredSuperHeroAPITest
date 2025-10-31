@@ -1,6 +1,7 @@
 package core;
 
-import org.junit.Before;
+
+import org.junit.jupiter.api.BeforeAll;
 
 import static io.restassured.RestAssured.baseURI;
 
@@ -13,8 +14,8 @@ public class BaseTest {
 
     public static String token = "3617586838252492";
 
-    @Before
-    public void testURI() {
+    @BeforeAll
+    public static void testURI() {
         baseURI = "https://superheroapi.com/api/";
     }
 

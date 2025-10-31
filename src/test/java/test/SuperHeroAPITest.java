@@ -1,7 +1,7 @@
 package test;
 
 import core.BaseTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import test.model.SuperHeroModel;
 
 import static io.restassured.RestAssured.given;
