@@ -1,8 +1,10 @@
 package test.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class SuperHeroModel {
 
     private String name;
@@ -11,5 +13,5 @@ public class SuperHeroModel {
     private String groupAffiliation;
     private String speed;
     private String power;
-    
+
 }

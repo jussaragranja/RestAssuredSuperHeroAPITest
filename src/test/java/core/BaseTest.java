@@ -12,11 +12,12 @@ import static io.restassured.RestAssured.baseURI;
 
 public class BaseTest {
 
-    public static String token = "3617586838252492";
+    public static String TOKEN = "3617586838252492";
+    protected static final String BASE_URL = "https://superheroapi.com/api/";
 
     @BeforeAll
-    public static void testURI() {
-        baseURI = "https://superheroapi.com/api/";
+    public static void setup() {
+        baseURI = BASE_URL;
     }
 
 }

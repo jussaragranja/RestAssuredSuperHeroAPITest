@@ -2,13 +2,14 @@ package test;
 
 import core.BaseTest;
 import org.junit.jupiter.api.Test;
+import service.SuperHeroService;
 import test.model.SuperHeroModel;
+import org.junit.jupiter.api.DisplayName;
 
-import static io.restassured.RestAssured.given;
+
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-
 
 /**
  * @author jussaragranja
@@ -26,23 +27,24 @@ public class SuperHeroAPITest extends BaseTest {
      * E deve ser retornado que é afiliado do grupo "Justice League Elite"
      */
 
+    private final SuperHeroService service = new SuperHeroService(TOKEN);
+
     @Test
-    public void getHeroByIdSuccessTest(){
+    @DisplayName("Consultar ficha de Green Arrow por ID")
+    void getHeroByIdSuccessTest(){
 
-        SuperHeroModel superHeroModel = new SuperHeroModel();
-        superHeroModel.setIntelligence("81");
-        superHeroModel.setFullName("Oliver Queen");
-        superHeroModel.setGroupAffiliation("Justice League Elite");
+        SuperHeroModel greenArrow = SuperHeroModel.builder()
+                .intelligence("81")
+                .fullName("Oliver Queen")
+                .groupAffiliation("Justice League Elite")
+                .build();
 
-        given()
-                .when()
-                .get(token+"/298")
-                .then()
+        service.getHeroById("298")
                 .assertThat()
                 .body(
-                        "powerstats.intelligence", equalTo(superHeroModel.getIntelligence()),
-                        "biography.full-name", equalTo(superHeroModel.getFullName()),
-                        "connections.group-affiliation", containsString(superHeroModel.getGroupAffiliation())
+                        "powerstats.intelligence", equalTo(greenArrow.getIntelligence()),
+                        "biography.full-name", equalTo(greenArrow.getFullName()),
+                        "connections.group-affiliation", containsString(greenArrow.getGroupAffiliation())
                 )
                 .body(matchesJsonSchemaInClasspath("schema/getHeroById.json"))
                 .log().all();
