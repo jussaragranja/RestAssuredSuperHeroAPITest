@@ -1,8 +1,9 @@
 FROM fedora:29
 
-RUN dnf install java-11-openjdk -y
+RUN dnf install -y java-11-openjdk maven git-all && dnf clean all
 
-RUN dnf install maven -y
+WORKDIR /app
 
-RUN dnf install git-all -y
+COPY . .
 
+CMD ["mvn", "test"]
